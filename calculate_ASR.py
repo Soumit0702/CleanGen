@@ -18,11 +18,11 @@ import torch
 import sys
 from transformers import LlamaForCausalLM, LlamaTokenizer
 
-os.environ['OPENAI_API_KEY'] = XXX  # your openai api 
-client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY'],  # this is also the default, it can be omitted
-)
+import getpass
+from openai import OpenAI
 
+api_key = getpass.getpass("Enter your OpenAI API key: ")
+client = OpenAI(api_key=api_key)
 
 
 @dataclass
